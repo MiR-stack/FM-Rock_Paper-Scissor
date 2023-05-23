@@ -8,8 +8,8 @@ const grow = keyframes`
 
 const mobileGrow = keyframes`
 0% {height:0px; width:0px; overflow: hidden;}
-100% { height:150px;
-    width:160px;}
+100% { height:100px;
+    width:105px;}
 `;
 
 const Wraper = styled.div`
@@ -48,7 +48,7 @@ const Wraper = styled.div`
 
   `}
 
-  @media (max-width: 900px) {
+  @media (max-width: 400px) {
     animation: ${(props) => (props.action === "result" ? mobileGrow : "")} 1s;
   }
 
@@ -56,14 +56,6 @@ const Wraper = styled.div`
     height: 100px;
     width: 105px;
   }
-
-  ${(props) =>
-    props.action === "main" &&
-    `
-  
-  
-
-  `}
 
   &::after {
     height: 100%;
