@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+/* &::after {
+    height: 100%;
+    width: 100%;
+    content: "";
+    position: absolute;
+    background: hsl(40, 84%, 53%);
+    border-radius: 50%;
+    top: -5px;
+  } */
