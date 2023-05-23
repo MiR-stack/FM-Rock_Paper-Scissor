@@ -5,6 +5,11 @@ const grow = keyframes`
 100% {height: 150px; width:165px}
 `;
 
+const MobileGrow = keyframes`
+0% {height:0px; width:0px; overflow: hidden;}
+100% {height: 100px; width:105px}
+`;
+
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -38,6 +43,10 @@ const PickSkelton = styled.div`
   animation-name: ${grow};
   animation-duration: 1s;
   animation-iteration-count: 3;
+
+  @media (max-width: 900px) {
+    animation-name: ${MobileGrow};
+  }
 `;
 
 const Picked = styled.div`
@@ -55,6 +64,7 @@ const Picked = styled.div`
 
 const PickTitle = styled.h1`
   font-size: calc(1vw + 0.4rem);
+  text-align: center;
 `;
 
 const ResultWraper = styled.div`
