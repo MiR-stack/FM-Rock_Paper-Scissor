@@ -5,7 +5,6 @@ import Topbar from "./components/topbar/topbar";
 import Main from "./components/main/main";
 import Rules from "./components/rules/rules";
 import Result from "./components/result/result";
-import Extra from "./components/_extra/extra";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -82,23 +81,9 @@ function App() {
     }
   }, [result]);
 
-  const [extra, setExtra] = useState(true);
-
-  const handleExtra = () => {
-    setExtra(!extra);
-  };
-
-  const handleFun = () => {
-    alert(
-      "kiii tumi amare valobasho na. jao bago tumer ar game khela lagbo na."
-    );
-  };
-
   return (
     <Container>
       <Wraper>
-        {extra ? <Extra handleExtra={handleExtra} handleFun={handleFun} /> : ""}
-
         <Topbar score={score} />
         {state === "home" ? (
           <Main handleResult={handleResult} />
