@@ -1,50 +1,16 @@
 import React, { useEffect, useState } from "react";
-import game from "./game";
-import { styled } from "styled-components";
-import Topbar from "./components/topbar/topbar";
-import Main from "./components/main/main";
-import Rules from "./components/rules/rules";
-import Result from "./components/result/result";
-
-const Container = styled.div`
-  min-height: 100vh;
-  width: 100%;
-  background: radial-gradient(
-    circle at 50% 0%,
-    hsl(214, 47%, 23%),
-    hsl(237, 49%, 15%)
-  );
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 50px;
-  padding: 0 50px;
-`;
-
-const Wraper = styled.div`
-  width: 1366px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 100vh;
-  @media (max-width: 900px) {
-    padding: 40px 20px;
-  }
-  @media (max-width: 600px) {
-    padding: 40px 10px;
-  }
-
-  @media (max-width: 900px) {
-    width: 100%;
-    justify-content: space-between;
-  }
-`;
+import Topbar from "../components/topbar/topbar";
+import Main from "../components/main/main";
+import Rules from "../components/rules/rules";
+import Result from "../components/result/result";
+import { Container, Wraper } from "./app.styled";
+import useGame from "../hooks/game";
 
 function App() {
   const [state, setState] = useState("home");
   const [result, setResult] = useState();
-  const [score, setScore] = useState("init");
+  const [score, setScore] = useState(0);
+  const game = useGame();
 
   const handleResult = (userSelect) => {
     setResult(game(userSelect));
@@ -65,7 +31,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (score !== "init") {
+    if (score !== 0) {
       console.log("rached");
       localStorage.setItem("score", score);
     }
